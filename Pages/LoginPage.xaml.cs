@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,8 +37,11 @@ namespace UPSAB.Pages
             if (IsLoginValid(enteredUsername, enteredPassword))
             {
                 
-                MainWindow.currentUser = dbContext.Users.FirstOrDefault(u => u.Login == enteredUsername);
-                MessageBox.Show("Вход выполнен");
+                MainWindow.currentUser = dbContext.Users
+                    .Include(u => u.Role)
+                    .FirstOrDefault(u => u.Login == enteredUsername);
+                NavigationService.Navigate(new ActiveOrdersPage()); ;
+
             }
             else
             {
