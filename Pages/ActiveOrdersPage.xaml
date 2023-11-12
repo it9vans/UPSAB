@@ -50,7 +50,7 @@
                     <DataGridTemplateColumn >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать" Tag="{Binding SelectedItem, ElementName=activeOrdersDataGrid}"/>
+                                <Button Content="Редактировать" Tag="{Binding SelectedItem, ElementName=activeOrdersDataGrid}" Click="EditButtonClick"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
