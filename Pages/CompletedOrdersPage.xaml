@@ -1,4 +1,4 @@
-﻿<Page x:Class="UPSAB.Pages.ActiveOrdersPage"
+﻿<Page x:Class="UPSAB.Pages.CompletedOrdersPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UPSAB.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ActiveOrdersPage">
+      Title="CompletedOrdersPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,10 +28,10 @@
                     <Hyperlink NavigateUri="CompletedOrdersPage.xaml">Завершенные заявки</Hyperlink>
                 </TextBlock>
                 <TextBlock FontSize="30" Margin="5,0,5,0">
-                    <Hyperlink NavigateUri="CompletedOrdersPage.xaml">Статистика заявки</Hyperlink>
+                    <Hyperlink NavigateUri="ActiveOrdersPage.xaml">Статистика заявки</Hyperlink>
                 </TextBlock>
             </StackPanel>
-            <Label Content="Активные заказы" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Label Content="Завершённые заказы" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <DataGrid x:Name="activeOrdersDataGrid" ItemsSource="{Binding}" SelectedItem="{Binding Path=selectedOrder}" CanUserResizeColumns="True" AutoGenerateColumns="False">
@@ -47,13 +47,6 @@
                     <DataGridTextColumn Binding="{Binding Status.StatusName}" Header="Статус"/>
                     <DataGridTextColumn Binding="{Binding Executor.Surname}" Header="Фамилия исп."/>
                     <DataGridTextColumn Binding="{Binding ExecutorComment}" Header="Комм. исп."/>
-                    <DataGridTemplateColumn >
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Редактировать" Tag="{Binding SelectedItem, ElementName=activeOrdersDataGrid}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

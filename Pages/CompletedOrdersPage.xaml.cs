@@ -17,21 +17,22 @@ using System.Windows.Shapes;
 namespace UPSAB.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ActiveOrdersPage.xaml
+    /// Логика взаимодействия для CompletedOrders.xaml
     /// </summary>
-    public partial class ActiveOrdersPage : Page
+    public partial class CompletedOrdersPage : Page
     {
         private ApplicationDbContext dbContext;
-        public ActiveOrdersPage()
+
+        public CompletedOrdersPage()
         {
             InitializeComponent();
-            
+
             dbContext = new ApplicationDbContext();
 
             if (MainWindow.currentUser.Role.RoleName == "Admin" || MainWindow.currentUser.Role.RoleName == "Executor")
             {
                 var activeOrders = dbContext.Orders
-                    .Where(o => o.StatusId == 1)
+                    .Where(o => o.StatusId == 2 || o.StatusId == 3)
                     .Include(o => o.Client)
                     .Include(o => o.Defect)
                     .Include(o => o.Device)
@@ -43,7 +44,7 @@ namespace UPSAB.Pages
             else
             {
                 var activeOrders = dbContext.Orders
-                    .Where(o => o.StatusId == 1 && o.ClientId == MainWindow.currentUser.Id)
+                    .Where(o => (o.StatusId == 1 || o.StatusId == 3) && o.ClientId == MainWindow.currentUser.Id)
                     .Include(o => o.Client)
                     .Include(o => o.Defect)
                     .Include(o => o.Device)

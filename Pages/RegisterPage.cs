@@ -20,7 +20,7 @@ namespace UPSAB.Pages
     /// </summary>
     public partial class RegisterPage : Page
     {
-        ApplicationDbContext dbContext;
+        private ApplicationDbContext dbContext;
 
         public RegisterPage()
         {

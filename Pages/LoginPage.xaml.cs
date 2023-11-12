@@ -21,7 +21,7 @@ namespace UPSAB.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
-        ApplicationDbContext dbContext;
+        private ApplicationDbContext dbContext;
 
         public LoginPage()
         {
