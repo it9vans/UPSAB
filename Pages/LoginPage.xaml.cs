@@ -20,9 +20,42 @@ namespace UPSAB.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        ApplicationDbContext dbContext;
+
         public LoginPage()
         {
             InitializeComponent();
+            dbContext = new ApplicationDbContext();
         }
+
+        private void loginButtonClick(object sender, RoutedEventArgs e)
+        {
+            string enteredUsername = loginTextBox.Text;
+            string enteredPassword = passwordBox.Password.ToString();
+
+            if (IsLoginValid(enteredUsername, enteredPassword))
+            {
+                // Вход выполнен успешно, перейти на следующую страницу
+                //NavigationService.Navigate(new NextPage());
+                MessageBox.Show("Вход выполнен");
+            }
+            else
+            {
+                // Уведомить пользователя о неправильном логине или пароле
+                MessageBox.Show("Неправильный логин или пароль. Попробуйте снова.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private bool IsLoginValid(string username, string password)
+        {
+            // Проверьте в базе данных, существует ли пользователь с введенным именем пользователя
+            var user = dbContext.Users.FirstOrDefault(u => u.Login == username);
+
+            if (user.Password == password)
+                return true;
+            else
+                return false;
+        }
+
+
     }
 }

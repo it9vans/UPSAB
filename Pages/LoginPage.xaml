@@ -24,8 +24,8 @@
             <Label Content="Логин:" FontSize="16"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
             <TextBox x:Name="loginTextBox" Height="20" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
             <Label Content="Пароль:" FontSize="16"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="passwordTextBox" Height="20" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-            <Button x:Name="loginButton" Content="Войти" FontSize="15" Height="23" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <PasswordBox x:Name="passwordBox" Height="20" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Button x:Name="loginButton" Content="Войти" FontSize="15" Height="23" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0" Click="loginButtonClick"/>
             <Button x:Name="registerButton" Content="Регистрация" FontSize="15" Height="23" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
 
         </StackPanel>
