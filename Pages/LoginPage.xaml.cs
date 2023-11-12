@@ -35,8 +35,8 @@ namespace UPSAB.Pages
 
             if (IsLoginValid(enteredUsername, enteredPassword))
             {
-                // Вход выполнен успешно, перейти на следующую страницу
-                //NavigationService.Navigate(new NextPage());
+                
+                MainWindow.currentUser = dbContext.Users.FirstOrDefault(u => u.Login == enteredUsername);
                 MessageBox.Show("Вход выполнен");
             }
             else
@@ -45,7 +45,13 @@ namespace UPSAB.Pages
                 MessageBox.Show("Неправильный логин или пароль. Попробуйте снова.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private bool IsLoginValid(string username, string password)
+
+        private void registerButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegisterPage()); ;
+        }
+
+            private bool IsLoginValid(string username, string password)
         {
             // Проверьте в базе данных, существует ли пользователь с введенным именем пользователя
             var user = dbContext.Users.FirstOrDefault(u => u.Login == username);

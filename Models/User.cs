@@ -26,4 +26,5 @@ public partial class User
     public virtual ICollection<Order> OrderExecutors { get; set; } = new List<Order>();
 
     public virtual Role Role { get; set; } = null!;
+
 }
