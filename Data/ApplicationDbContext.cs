@@ -37,7 +37,7 @@ public partial class ApplicationDbContext : DbContext
         modelBuilder.Entity<Defect>(entity =>
         {
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.DefectName)
                 .HasMaxLength(30)
@@ -48,7 +48,7 @@ public partial class ApplicationDbContext : DbContext
         modelBuilder.Entity<Device>(entity =>
         {
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.DeviceName)
                 .HasMaxLength(40)
@@ -106,7 +106,7 @@ public partial class ApplicationDbContext : DbContext
         modelBuilder.Entity<Role>(entity =>
         {
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.RoleName)
                 .HasMaxLength(20)
@@ -116,7 +116,7 @@ public partial class ApplicationDbContext : DbContext
         modelBuilder.Entity<Status>(entity =>
         {
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.StatusName)
                 .HasMaxLength(20)
@@ -126,7 +126,7 @@ public partial class ApplicationDbContext : DbContext
         modelBuilder.Entity<User>(entity =>
         {
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.Login)
                 .HasMaxLength(50)

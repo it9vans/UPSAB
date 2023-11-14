@@ -67,6 +67,36 @@ namespace UPSAB.Pages
             NavigationService.Navigate(new OrderEditPage(selectedOrder.Id));
         }
 
+        
+        private void SearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            int searchId = Int32.Parse(searchTextBox.Text);
+
+            if(MainWindow.currentUser.Role.RoleName == "Manager" || MainWindow.currentUser.Role.RoleName == "Executor")
+            {
+                if (dbContext.Orders.Any(o => o.Id == searchId))
+                {
+                    NavigationService.Navigate(new OrderEditPage(searchId));
+                }
+                else
+                {
+                    MessageBox.Show($"Внимание! Заявка с таким Id не найдена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                if (dbContext.Orders.Where(o => o.ClientId == MainWindow.currentUser.Id).Any(o => o.Id == searchId))
+                {
+                    NavigationService.Navigate(new OrderEditPage(searchId));
+                }
+                else
+                {
+                    MessageBox.Show($"Внимание! Заявка с таким Id не найдена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            
+        }
+
         private void NewOrderButtonClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new OrderCreationPage());

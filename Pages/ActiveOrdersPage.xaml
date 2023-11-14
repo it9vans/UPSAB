@@ -34,6 +34,11 @@
             <Label Content="Активные заказы" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox x:Name="searchTextBox" Width="100" FontSize="16"/>
+                <Button Content="Поиск" Click="SearchButtonClick"/>
+            </StackPanel>
+            
             <DataGrid x:Name="activeOrdersDataGrid" ItemsSource="{Binding}" SelectedItem="{Binding Path=selectedOrder}" CanUserResizeColumns="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
