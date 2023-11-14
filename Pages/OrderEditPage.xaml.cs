@@ -91,7 +91,6 @@ namespace UPSAB.Pages
                 }
                 else
                 {
-                    //editableOrder.Executor = executor;
                     editableOrder.ExecutorId = executor.Id;
                     dbContext.SaveChanges();
                     MessageBox.Show($"Изменения применены", "Выполнено", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -109,6 +108,11 @@ namespace UPSAB.Pages
                 MessageBox.Show($"Изменения применены", "Выполнено", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow.instance.Content = new OrderEditPage(editableOrder.Id);
             }
+            else
+            {
+                MessageBox.Show($"Введите данные", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
         }
 
         public void ConfirmExecutorCommentButtonClick(object sender, RoutedEventArgs e)
@@ -119,6 +123,11 @@ namespace UPSAB.Pages
                 dbContext.SaveChanges();
                 MessageBox.Show($"Изменения применены", "Выполнено", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow.instance.Content = new OrderEditPage(editableOrder.Id);
+            }
+            else
+            {
+                MessageBox.Show($"Введите данные", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
         }
 

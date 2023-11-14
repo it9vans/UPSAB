@@ -59,10 +59,8 @@ namespace UPSAB.Pages
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
         {
-
             Button button = sender as Button;
-
-            //DataRowView dataRowView = (DataRowView)((Button)e.Source).DataContext;
+            //обьекту selectedOrder присваивается выбранный обьект из DataGrid, кнопка которого вызвала это событие
             Order selectedOrder = (Order)((Button)e.Source).DataContext;
             NavigationService.Navigate(new OrderEditPage(selectedOrder.Id));
         }
@@ -70,6 +68,7 @@ namespace UPSAB.Pages
         
         private void SearchButtonClick(object sender, RoutedEventArgs e)
         {
+            
             int searchId = Int32.Parse(searchTextBox.Text);
 
             if(MainWindow.currentUser.Role.RoleName == "Manager" || MainWindow.currentUser.Role.RoleName == "Executor")

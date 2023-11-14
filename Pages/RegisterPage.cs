@@ -53,7 +53,7 @@ namespace UPSAB.Pages
                 newUser.Phone = enteredPhone;
                 newUser.RoleId = 2;
 
-                if (dbContext.Users.Where(u => u.Login == enteredLogin).Count() != 0 || dbContext.Users.Where(u => u.Phone == enteredPhone).Count() != 0) 
+                if (IsRegistrationInputValid(newUser) && dbContext.Users.Where(u => u.Login == enteredLogin).Count() != 0 || dbContext.Users.Where(u => u.Phone == enteredPhone).Count() != 0) 
                 {
                     MessageBox.Show("Пользователь с такими учетными данными уже существует. Попробуйте снова.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -61,8 +61,22 @@ namespace UPSAB.Pages
                 {
                     dbContext.Users.Add(newUser);
                     dbContext.SaveChanges();
+                    
                 }
             }
+        }
+
+        private bool IsRegistrationInputValid(User newUser)
+        {
+            if (newUser.Login != null
+                && newUser.Name != null
+                && newUser.Surname != null
+                && newUser.Patronymic != null
+                && newUser.Password != null
+                && newUser.Phone != null)
+                return true;
+            else
+                return false;
         }
 
 

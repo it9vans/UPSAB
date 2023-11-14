@@ -45,7 +45,6 @@ namespace UPSAB.Pages
             }
             else
             {
-                // Уведомить пользователя о неправильном логине или пароле
                 MessageBox.Show("Неправильный логин или пароль. Попробуйте снова.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

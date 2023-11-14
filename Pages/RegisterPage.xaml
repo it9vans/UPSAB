@@ -19,8 +19,8 @@
             <RowDefinition Height="200*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        
-        <Label Content="Регистрация" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Label Content="Техносервис. Регистрация" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="Логин:" />
             <TextBox x:Name="loginTextBox"  Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
