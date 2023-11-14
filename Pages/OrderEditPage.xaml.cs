@@ -22,18 +22,24 @@ namespace UPSAB.Pages
     public partial class OrderEditPage : Page
     {
 
-        private Order editableOrder;
+        private Order editableOrder = new Order();
         ApplicationDbContext dbContext;
         public OrderEditPage(int orderId)
         {
             InitializeComponent();
             dbContext = new ApplicationDbContext();
 
-            editableOrder = dbContext.Orders
-                .Include(o => o.Executor)
-                .FirstOrDefault(o => o.Id == orderId);
 
-            currentExecutor.Content = (currentExecutor.Content + $"id: {editableOrder.Executor.Id} Фамилия: {editableOrder.Executor.Surname}");
+            editableOrder = dbContext.Orders
+                .Where(o => o.Id == orderId)
+                .Include(o => o.Executor)
+                .First();
+
+            headLabel.Content = headLabel.Content + $" {editableOrder.Id}";
+
+            //здесь надо добавить проверкку на наличие
+            if (editableOrder.Executor != null)
+                currentExecutor.Content = (currentExecutor.Content + $"id: {editableOrder.Executor.Surname} Фамилия: {editableOrder.Description}");
 
             if (MainWindow.currentUser.Role.RoleName == "Manager")
             {

@@ -55,7 +55,7 @@ namespace UPSAB.Pages
             NavigationService.Navigate(new RegisterPage()); ;
         }
 
-            private bool IsLoginValid(string username, string password)
+        private bool IsLoginValid(string username, string password)
         {
             // Проверьте в базе данных, существует ли пользователь с введенным именем пользователя
             var user = dbContext.Users.FirstOrDefault(u => u.Login == username);

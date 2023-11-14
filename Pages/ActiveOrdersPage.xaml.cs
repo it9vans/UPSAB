@@ -60,7 +60,7 @@ namespace UPSAB.Pages
             {
                 if (button.DataContext is Order selectedOrder)
                 {
-                    NavigationService.Navigate(new OrderEditPage(2));
+                    NavigationService.Navigate(new OrderEditPage(selectedOrder.Id));
                 }
                 else
                 {

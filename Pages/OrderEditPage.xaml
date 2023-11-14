@@ -19,12 +19,12 @@
             <RowDefinition Height="200*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Label Content="Редактирование заявки" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label Name="headLabel" Content="Редактирование заявки" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Name="currentExecutor" Content="Текущий исполнитель:" />
             <Label Content="Введите id исполнителя:" />
             <TextBox x:Name="executorIdEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-            <Button x:Name="confirmButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="registerButtonClick"/>
+            <Button x:Name="confirmButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmButtonClick"/>
 
         </StackPanel>
     </Grid>
