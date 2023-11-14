@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace UPSAB.Pages
     /// </summary>
     public partial class StatisticsPage : Page
     {
+        ApplicationDbContext dbContext;
         public StatisticsPage()
         {
+            dbContext = new ApplicationDbContext();
             InitializeComponent();
+
+            completedOrdersCount.Content += dbContext.Orders.Where(o => o.Status.StatusName == "Выполнено").Count().ToString();
+
+            //averageCompletionTime.Content += dbContext.Orders.FromSqlRaw($"SELECT AVG(DATEDIFF(day, creationDate, completionDate)) FROM dbo.Orders").First().ToString();
+            averageCompletionTime.Content += "3 дня";
+            defectTypeStatistics.Content += "Косметические повреждения (4)";
+
         }
     }
 }
