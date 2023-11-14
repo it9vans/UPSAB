@@ -1,0 +1,44 @@
+﻿<Page x:Class="UPSAB.Pages.StatisticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UPSAB.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StatisticsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="30" Margin="5,0,5,0">
+                    <Hyperlink NavigateUri="ActiveOrdersPage.xaml">Активные заявки</Hyperlink>
+                </TextBlock>
+                <TextBlock FontSize="30" Margin="5,0,5,0">
+                    <Hyperlink NavigateUri="CompletedOrdersPage.xaml">Завершенные заявки</Hyperlink>
+                </TextBlock>
+                <TextBlock FontSize="30" Margin="5,0,5,0">
+                    <Hyperlink NavigateUri="StatisticsPage.xaml">Статистика заявки</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+            <Label Content="Статистика" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Name="completedOrdersCount" Content="Количество выполненных заявок: " />
+            <Label Name="averageCompletionTime" Content="Среднее время выполнения: " />
+            <Label Name="defectTypeStatistics" Content="Наиболее частые неисправности: " />
+        </StackPanel>
+    </Grid>
+</Page>

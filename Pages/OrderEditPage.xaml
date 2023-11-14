@@ -19,13 +19,35 @@
             <RowDefinition Height="200*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Label Name="headLabel" Content="Редактирование заявки" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Label Name="currentExecutor" Content="Текущий исполнитель:" />
-            <Label Content="Введите id исполнителя:" />
-            <TextBox x:Name="executorIdEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-            <Button x:Name="confirmButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmButtonClick"/>
+        <TextBlock FontSize="15" Margin="5,0,5,0" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
+            <Hyperlink NavigateUri="ActiveOrdersPage.xaml">Назад</Hyperlink>
+        </TextBlock>
 
+        <Label x:Name="headLabel" Content="Редактирование заявки № " FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Текущий исполнитель: " />
+            <Label Name="currentExecutor" Content="" />
+            
+            <Label x:Name="executorIdEditLabel" Visibility="Hidden" Content="Введите id исполнителя:" />
+            <TextBox x:Name="executorIdEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Button x:Name="confirmIdButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmIdButtonClick"/>
+
+            <Label Content="Текущее описание: "/>
+            <Label Name="currentDescription" Content="" />
+
+            <Label x:Name="descriptionEditLabel" Visibility="Hidden" Content="Введите новое описание:" />
+            <TextBox x:Name="descriptionEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Button x:Name="confirmDescriptionButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmDescriptionButtonClick"/>
+
+            <Label x:Name="executorCommentEditLabel" Visibility="Hidden" Content="Введите новое описание:" />
+            <TextBox x:Name="executorCommentEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Button x:Name="confirmExecutorCommentButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmExecutorCommentButtonClick"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="completeOrderPositiveButton" Content="Завершить заявку (выполнено)" Visibility="Hidden" FontSize="15" Height="23"  Click="CompleteOrderButtonClick"/>
+                <Button x:Name="completeOrderNegativeButton" Content="Завершить заявку (не выполнено)" Visibility="Hidden" FontSize="15" Height="23"  Click="CompleteOrderButtonClick"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

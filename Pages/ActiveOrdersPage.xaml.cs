@@ -52,21 +52,24 @@ namespace UPSAB.Pages
                     .ToList();
                 activeOrdersDataGrid.ItemsSource = activeOrders;
             }
+
+            if(MainWindow.currentUser.Role.RoleName == "Client")
+                newOrderButton.Visibility = Visibility.Visible;
         }
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button)
-            {
-                if (button.DataContext is Order selectedOrder)
-                {
-                    NavigationService.Navigate(new OrderEditPage(selectedOrder.Id));
-                }
-                else
-                {
-                    MessageBox.Show("Выберите заказ для редактирования.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            }
+
+            Button button = sender as Button;
+
+            //DataRowView dataRowView = (DataRowView)((Button)e.Source).DataContext;
+            Order selectedOrder = (Order)((Button)e.Source).DataContext;
+            NavigationService.Navigate(new OrderEditPage(selectedOrder.Id));
+        }
+
+        private void NewOrderButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrderCreationPage());
         }
 
     }

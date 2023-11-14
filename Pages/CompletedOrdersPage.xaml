@@ -28,7 +28,7 @@
                     <Hyperlink NavigateUri="CompletedOrdersPage.xaml">Завершенные заявки</Hyperlink>
                 </TextBlock>
                 <TextBlock FontSize="30" Margin="5,0,5,0">
-                    <Hyperlink NavigateUri="ActiveOrdersPage.xaml">Статистика заявки</Hyperlink>
+                    <Hyperlink NavigateUri="StatisticsPage.xaml">Статистика</Hyperlink>
                 </TextBlock>
             </StackPanel>
             <Label Content="Завершённые заказы" FontSize="17" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
@@ -44,6 +44,7 @@
                     <DataGridTextColumn Binding="{Binding Client.Patronymic}" Header="Отчество к."/>
                     <DataGridTextColumn Binding="{Binding Description}" Header="Описание"/>
                     <DataGridTextColumn Binding="{Binding CreationDate}" Header="Дата добавления"/>
+                    <DataGridTextColumn Binding="{Binding CompletionDate}" Header="Дата завершения"/>
                     <DataGridTextColumn Binding="{Binding Status.StatusName}" Header="Статус"/>
                     <DataGridTextColumn Binding="{Binding Executor.Surname}" Header="Фамилия исп."/>
                     <DataGridTextColumn Binding="{Binding ExecutorComment}" Header="Комм. исп."/>
