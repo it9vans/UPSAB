@@ -40,7 +40,7 @@
             <TextBox x:Name="descriptionEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
             <Button x:Name="confirmDescriptionButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmDescriptionButtonClick"/>
 
-            <Label x:Name="executorCommentEditLabel" Visibility="Hidden" Content="Введите новое описание:" />
+            <Label x:Name="executorCommentEditLabel" Visibility="Hidden" Content="Введите новый комментарий исполнителя:" />
             <TextBox x:Name="executorCommentEditTextBox" Visibility="Hidden" Width="100" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0"/>
             <Button x:Name="confirmExecutorCommentButton" Content="Подтвердить" Visibility="Hidden" FontSize="15" Height="23"  Click="ConfirmExecutorCommentButtonClick"/>
 

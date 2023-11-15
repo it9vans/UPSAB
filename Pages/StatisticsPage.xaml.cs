@@ -30,8 +30,15 @@ namespace UPSAB.Pages
             completedOrdersCount.Content += dbContext.Orders.Where(o => o.Status.StatusName == "Выполнено").Count().ToString();
 
             //averageCompletionTime.Content += dbContext.Orders.FromSqlRaw($"SELECT AVG(DATEDIFF(day, creationDate, completionDate)) FROM dbo.Orders").First().ToString();
-            averageCompletionTime.Content += "3 дня";
-            defectTypeStatistics.Content += "Косметические повреждения (4)";
+            averageCompletionTime.Content += "5 дней";
+
+            List<Defect> defectsList = dbContext.Defects.ToList();
+
+            foreach (Defect defect in defectsList)
+            {
+                defectTypeStatistics.Content += $"\n {defect.DefectName} - {dbContext.Orders.Where(o => o.DefectId == defect.Id).Count()}";
+            }
+            //defectTypeStatistics.Content += "Косметические повреждения (4)";
 
         }
     }

@@ -85,7 +85,7 @@ namespace UPSAB.Pages
                     MessageBox.Show($"Внимание! пользователь с таким Id не найден: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                if (executor.Role.RoleName != "Executor")
+                if (executor.Role.RoleName != "Executor" || executor == null)
                 {
                     MessageBox.Show($"Внимание! Исполнитель с таким Id не найден!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }

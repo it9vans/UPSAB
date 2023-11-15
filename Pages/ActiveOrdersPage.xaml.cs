@@ -28,7 +28,7 @@ namespace UPSAB.Pages
             
             dbContext = new ApplicationDbContext();
 
-            if (MainWindow.currentUser.Role.RoleName == "Admin" || MainWindow.currentUser.Role.RoleName == "Executor")
+            if (MainWindow.currentUser.Role.RoleName == "Manager" || MainWindow.currentUser.Role.RoleName == "Executor")
             {
                 var activeOrders = dbContext.Orders
                     .Where(o => o.StatusId == 1)

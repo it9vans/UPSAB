@@ -38,7 +38,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Name="completedOrdersCount" Content="Количество выполненных заявок: " />
             <Label Name="averageCompletionTime" Content="Среднее время выполнения: " />
-            <Label Name="defectTypeStatistics" Content="Наиболее частые неисправности: " />
+            <Label Name="defectTypeStatistics" Content="Статистика по типам неисправностей (все заявки): " />
         </StackPanel>
     </Grid>
 </Page>

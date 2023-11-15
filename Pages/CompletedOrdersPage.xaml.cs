@@ -29,7 +29,7 @@ namespace UPSAB.Pages
 
             dbContext = new ApplicationDbContext();
 
-            if (MainWindow.currentUser.Role.RoleName == "Admin" || MainWindow.currentUser.Role.RoleName == "Executor")
+            if (MainWindow.currentUser.Role.RoleName == "Manager" || MainWindow.currentUser.Role.RoleName == "Executor")
             {
                 var activeOrders = dbContext.Orders
                     .Where(o => o.StatusId == 2 || o.StatusId == 3)
@@ -44,7 +44,7 @@ namespace UPSAB.Pages
             else
             {
                 var activeOrders = dbContext.Orders
-                    .Where(o => (o.StatusId == 1 || o.StatusId == 3) && o.ClientId == MainWindow.currentUser.Id)
+                    .Where(o => (o.StatusId == 2 || o.StatusId == 3) && o.ClientId == MainWindow.currentUser.Id)
                     .Include(o => o.Client)
                     .Include(o => o.Defect)
                     .Include(o => o.Device)
